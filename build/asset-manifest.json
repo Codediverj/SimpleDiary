@@ -1,10 +1,10 @@
 {
   "files": {
-    "main.css": "/static/css/main.f32a0fa0.css",
-    "main.js": "/static/js/main.b208ad92.js",
-    "index.html": "/index.html",
-    "main.f32a0fa0.css.map": "/static/css/main.f32a0fa0.css.map",
-    "main.b208ad92.js.map": "/static/js/main.b208ad92.js.map"
+    "main.css": "/simplediary/static/css/main.f32a0fa0.css",
+    "main.js": "/simplediary/static/js/main.b208ad92.js",
+    "index.html": "/simplediary/index.html",
+    "main.f32a0fa0.css.map": "/simplediary/static/css/main.f32a0fa0.css.map",
+    "main.b208ad92.js.map": "/simplediary/static/js/main.b208ad92.js.map"
   },
   "entrypoints": [
     "static/css/main.f32a0fa0.css",

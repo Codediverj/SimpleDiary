@@ -17,7 +17,7 @@ const DiaryItem = ({
     const localContentInput = useRef();
 
     const handleRemove = () => {
-        if(window.confirm(`${id}번째 일기를 정말 삭제하시겠습니까?`)){
+        if(window.confirm(`Do you really want to delete diary ${id}?`)){
             onDelete(id);
         }
     };
@@ -32,29 +32,31 @@ const DiaryItem = ({
             localContentInput.current.focus();
             return;
         }
-        if(window.confirm(`${id}번 째 일기를 수정하시겠습니까?`)){
+        if(window.confirm(`Do you want to edit diary ${id}?`)){
             onEdit(id, localContent);
             toggleIsEdit(); 
         }
     }
 
     return (
-      <div className="DiaryItem">
+      <div className="DiaryItem border border-sky-200 rounded-lg">
         <div className="info">
             <span className="author_info">
-                author: {author} / emotion : {emotion}
+                Author: {author} / Emotion : {emotion}
             </span>
-            <span className="date">
+            <span className="date block">
                 {new Date(created_date).toLocaleString()}
             </span>
         </div>
-        <div className="content">
+        <div className="content pt-4 pb-8">
             {isEdit ? (
                 <>
                     <textarea 
                     ref={localContentInput}
                     value={localContent}
-                    onChange={(e)=>setLocalContent(e.target.value)}/>
+                    onChange={(e)=>setLocalContent(e.target.value)}
+                    className="w-full h-30"
+                    />
                 </>
             ) : (
                 <>{content}</>
@@ -62,13 +64,13 @@ const DiaryItem = ({
         </div>
         {isEdit ? (
         <>
-            <button onClick={handleQuitEdit}>Cancel Edit</button>
-            <button onClick={handleEdit}>Save</button>
+            <button onClick={handleQuitEdit} className="bg-gray-400 py-1 px-4 rounded text-white mr-2">Cancel</button>
+            <button onClick={handleEdit} className="bg-sky-400 py-1 px-4 rounded text-white">Save</button>
         </>
         ) : (
         <>
-            <button onClick={handleRemove}>Delete</button>
-            <button onClick={toggleIsEdit}>Edit</button>
+            <button onClick={handleRemove} className="bg-red-400 py-1 px-4 rounded text-white mr-2">Delete</button>
+            <button onClick={toggleIsEdit} className="bg-sky-400 py-1 px-4 rounded text-white">Edit</button>
         </>
         )}
       </div>

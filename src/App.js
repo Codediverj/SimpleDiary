@@ -37,7 +37,7 @@ function App() {
   const getData = async()=> {
     const res = await fetch('https://jsonplaceholder.typicode.com/comments').then((res)=>res.json());
     
-    const initData = res.slice(0,20).map((it)=>{
+    const initData = res.slice(0,5).map((it)=>{
       return{
         author : it.email,
         content : it.body,
@@ -78,10 +78,13 @@ function App() {
   return (
     <div className="App">
       <DiaryEditor onCreate={onCreate}/>
-      <div>Total : {data.length}</div>
-      <div>Good Mood day : {goodCount}</div>
-      <div>Bad Mood day : {badCount}</div>
-      <div>Good day (%) : {goodRatio}%</div>
+      <h2 className="font-bold text-xl mt-12 mb-4">Diary List</h2>
+      <div className="bg-sky-100 mt-4 mb-6 p-6 text-center text-black/80">
+        <div>Total <div className="inline text-sky-500 font-bold">{data.length} days</div> diary</div>
+        <div>Good Mood day : <div className="inline text-sky-500 font-bold">{goodCount} days</div></div>
+        <div>Bad Mood day : <div className="inline text-sky-500 font-bold">{badCount} days</div></div>
+        <div>Good day (%) : <div className="inline text-sky-500 font-bold">{goodRatio}%</div></div>
+      </div>
       <DiaryList onEdit={onEdit} onDelete={onDelete} diaryList={data}/>
     </div>
   );
